@@ -1,0 +1,28 @@
+from src.todo.models import Task
+from sqlalchemy.exc import SQLAlchemyError  # Exceção do SQLAlchemy
+from src.todo.core.logger import logger  # Para logs
+
+
+class TaskRepository:
+    def __init__(self, session) -> None:
+        self.session = session
+
+    def create(self, task: Task):
+        try:
+            self.session.add(task)
+            self.session.commit()
+            self.session.refresh(task)
+
+            logger.info("Tarefa Criada", task_id=task.id)
+            return task
+
+        except SQLAlchemyError as e:
+            self.session.rollback()
+
+            logger.error(
+                "Falha na criação da tarefa",
+                error=str(e),
+                task_data=str(task),
+                exc_info=True
+            )
+            raise
