@@ -11,7 +11,7 @@ load_dotenv()
 
 class Config:
     def __init__(self):
-        self.host = os.getenv("DB_HOST")
+        self.host = os.getenv("DB_HaOST", None)
         self.name = os.getenv("DB_NAME")
         self.user = os.getenv("DB_USER")
         self.password = os.getenv("DB_PASSWORD")
@@ -19,7 +19,7 @@ class Config:
 
     @property
     def url_database(self):
-        if not self.name:
+        if not self.host:
             return "sqlite:///test.db"
 
         return (
@@ -29,6 +29,6 @@ class Config:
         )
 
 
-settings = Config()
+Settings = Config()
 
-print(settings.url_database)
+print(Settings.url_database)

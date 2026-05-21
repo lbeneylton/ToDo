@@ -1,5 +1,5 @@
 # Importação da Base
-from core.base import Base
+from src.todo.core.base import Base
 
 # Classes e metodos do ORM para modelagem
 from sqlalchemy.orm import Mapped, mapped_column
