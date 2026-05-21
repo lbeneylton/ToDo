@@ -29,6 +29,7 @@ class Config:
         )
 
 
-Settings = Config()
+settings = Config()
 
-print(Settings.url_database)
+if __name__ == "__main__":
+    print(settings.url_database)

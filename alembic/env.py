@@ -1,7 +1,7 @@
 from src.todo.core.base import Base
 import src.todo.models  # garante carregamento de todos os models
 
-from src.todo.core.config import Settings  # Configurações do banco
+from src.todo.core.settings import settings  # Configurações do banco
 
 from logging.config import fileConfig
 
@@ -33,7 +33,7 @@ target_metadata = Base.metadata
 
 def run_migrations_offline() -> None:
     """Modo offline (gera SQL sem conectar no banco)."""
-    url = Settings.url_database
+    url = settings.url_database
 
     context.configure(
         url=url,
@@ -50,7 +50,7 @@ def run_migrations_online() -> None:
     """Modo online (executa no banco real)."""
     connectable = engine_from_config(
         {
-            "sqlalchemy.url": Settings.url_database  # 👈 usa Settings aqui
+            "sqlalchemy.url": settings.url_database  # 👈 usa settings aqui
         },
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
