@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-class Config:
+class Settings:
     def __init__(self):
         self.host = os.getenv("DB_HaOST", None)
         self.name = os.getenv("DB_NAME")
@@ -29,7 +29,7 @@ class Config:
         )
 
 
-settings = Config()
+settings = Settings()
 
 if __name__ == "__main__":
     print(settings.url_database)

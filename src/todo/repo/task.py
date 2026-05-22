@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session  # Class Session
 from sqlalchemy.exc import SQLAlchemyError  # Exceção do SQLAlchemy
 
 # Classe task e objeto logger
-from model_task import Task
+from todo.models.task import Task
 from core.logger import logger as lg
 
 
