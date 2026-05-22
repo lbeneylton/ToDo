@@ -4,8 +4,9 @@ para execuçaõ de querys com auto fechamento de sessão
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from settings import settings
 
-URL_BASE = ""
+URL_BASE = settings.url_database
 
 engine = create_engine(URL_BASE)
 
