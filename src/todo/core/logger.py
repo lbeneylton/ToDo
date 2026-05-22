@@ -9,7 +9,7 @@ class Logger:
     def __init__(
         self,
         name: str = "todo_log",
-        log_dir: str = "/src/logs",
+        log_dir: str = "logs",
         log_file: str = "log"
     ):
         self.logger = logging.getLogger(name)
