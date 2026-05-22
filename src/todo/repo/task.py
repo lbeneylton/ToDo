@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session  # Class Session
 from sqlalchemy.exc import SQLAlchemyError  # Exceção do SQLAlchemy
 
 # Classe task e objeto logger
-from todo.models.task import Task
+from ..models import Task
 from core.logger import logger as lg
 
 
@@ -46,3 +46,10 @@ class TaskRepository:
     def delete(self, task: Task):
         self.session.delete(task)
         self.session.commit()
+
+
+if __name__ == "__name__":
+    from core.session import get_session
+
+    session = next(get_session())
+    print(session)
