@@ -1,7 +1,7 @@
-from src.todo.core.base import Base
-import src.todo.models  # garante carregamento de todos os models
+from todo.core.base import Base
+import todo.models  # garante carregamento de todos os models
 
-from src.todo.core.settings import settings  # Configurações do banco
+from todo.core.settings import settings  # Configurações do banco
 
 from logging.config import fileConfig
 

@@ -1,12 +1,15 @@
 # Importação da Base
-from src.todo.core.base import Base
+from todo.core.base import Base
 
 # Classes e metodos do ORM para modelagem
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, DateTime, func  # Tipos do SqlAlchemy
 
+from datetime import datetime
 
 # Classe para modelo de task no banco de dados
+
+
 class Task(Base):
     __tablename__ = "tasks"
 
@@ -17,12 +20,12 @@ class Task(Base):
     descricao: Mapped[str] = mapped_column(String(300), default="")
 
     # Dados da task criados pelo sistema
-    data_criacao: Mapped[str] = mapped_column(
+    data_criacao: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         server_default=func.now(),
         nullable=False
     )
-    data_atualizacao: Mapped[str] = mapped_column(
+    data_atualizacao: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         server_default=func.now(),
         onupdate=func.now(),
