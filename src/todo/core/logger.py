@@ -25,7 +25,8 @@ class Logger:
         log_path = os.path.join(log_dir, log_file)
 
         formatter = logging.Formatter(
-            "[%(asctime)s] %(levelname)s - %(name)s - %(message)s"
+            "[%(asctime)s] %(levelname)s - %(name)s - %(message)s",
+            datefmt="%H:%M:%S"  # <-- só hora:minuto:segundo
         )
 
         # console handler

@@ -4,7 +4,7 @@ para execuçaõ de querys com auto fechamento de sessão
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from settings import settings
+from todo.core.settings import settings
 
 URL_BASE = settings.url_database
 
@@ -23,3 +23,12 @@ def get_session():
         yield session
     finally:
         session.close()
+
+
+def criar_sessao():
+    return settings.url_database
+
+
+if __name__ == "__main__":
+    # Teste rápido do módulo
+    print("URL do banco:", criar_sessao())
